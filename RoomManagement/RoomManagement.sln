@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomManagement", "RoomManagement.csproj", "{D49E0642-9335-4A2D-94B7-456B2FBD0AE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomManagement", "RoomManagement.csproj", "{D49E0642-9335-4A2D-94B7-456B2FBD0AE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomManagement.Core", "..\RoomManagement.Core\RoomManagement.Core.csproj", "{AF1E9B6F-A32B-4235-B294-202485B85E3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomManagement.Data", "..\RoomManagement.Data\RoomManagement.Data.csproj", "{5686AA8A-9551-449A-B883-849F4E89F6BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomManagement.Services", "..\RoomManagement.Services\RoomManagement.Services.csproj", "{EEB88141-5E98-4666-909F-4F047891DF20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{D49E0642-9335-4A2D-94B7-456B2FBD0AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D49E0642-9335-4A2D-94B7-456B2FBD0AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D49E0642-9335-4A2D-94B7-456B2FBD0AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF1E9B6F-A32B-4235-B294-202485B85E3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF1E9B6F-A32B-4235-B294-202485B85E3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF1E9B6F-A32B-4235-B294-202485B85E3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF1E9B6F-A32B-4235-B294-202485B85E3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5686AA8A-9551-449A-B883-849F4E89F6BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5686AA8A-9551-449A-B883-849F4E89F6BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5686AA8A-9551-449A-B883-849F4E89F6BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5686AA8A-9551-449A-B883-849F4E89F6BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB88141-5E98-4666-909F-4F047891DF20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB88141-5E98-4666-909F-4F047891DF20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB88141-5E98-4666-909F-4F047891DF20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB88141-5E98-4666-909F-4F047891DF20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
