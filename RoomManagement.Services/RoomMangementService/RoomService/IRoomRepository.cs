@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomManagement.Services.RoomMangementService.PriceManagement
+namespace RoomManagement.Services.RoomMangementService.RoomSerivce
 {
-    public interface IPriceManagementRepository
+    public interface IRoomRepository
     {
     }
 }

@@ -8,9 +8,10 @@
         {
 
             endpoints.MapControllerRoute(
-              name: "areas",
-              pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-            );
+                name: "admin-area",
+                pattern: "admin/{controller=Dashboard}/{action=Index}/{id?}",
+                defaults: new { area = "Admin" }
+              );
 
 
             endpoints.MapControllerRoute(

@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RoomManagement.Data.Context;
 using RoomManagement.Services.Media;
-using RoomManagement.Services.RoomMangementService.PriceManagement;
-using RoomManagement.Services.RoomMangementService.Room;
-using RoomManagement.Services.RoomMangementService.RoomType;
-using RoomManagement.Services.RoomMangementService.Voucher;
+using RoomManagement.Services.RoomMangementService.PriceManagementSerivce;
+using RoomManagement.Services.RoomMangementService.RoomSerivce;
+using RoomManagement.Services.RoomMangementService.RoomTypeSerivce;
+using RoomManagement.Services.RoomMangementService.VoucherSerivce;
 using System.Data;
 
 namespace RoomManagement.Extensions
