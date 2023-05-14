@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomManagement.Services.RoomMangementService.RoomType
+namespace RoomManagement.Data.Extensions
 {
-    public class RoomTypeRepository: IRoomTypeRepository
+    internal class test
     {
     }
 }

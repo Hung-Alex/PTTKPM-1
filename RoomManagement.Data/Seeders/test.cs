@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomManagement.Services.RoomMangementService.Room
+namespace RoomManagement.Data.Seeders
 {
-    public interface IRoomRepository
+    internal class test
     {
     }
 }

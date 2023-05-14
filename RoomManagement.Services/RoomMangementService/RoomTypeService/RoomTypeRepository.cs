@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomManagement.Services.RoomMangementService.Voucher
+namespace RoomManagement.Services.RoomMangementService.RoomTypeSerivce
 {
-    public interface IVoucherRepository
+    public class RoomTypeRepository: IRoomTypeRepository
     {
     }
 }
