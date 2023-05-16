@@ -8,7 +8,7 @@ namespace RoomManagement.Core.DTO
 {
     public class VoucherQuery
     {
-        public string Name { get; set; }// tên loại phòng
+        public string Name { get; set; }// tên voucher
         public string UrlSlug { get; set; }
     }
 }

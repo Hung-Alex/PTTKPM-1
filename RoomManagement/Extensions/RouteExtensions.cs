@@ -7,6 +7,9 @@
         public static IEndpointRouteBuilder UseRoomManagementRoutes(this IEndpointRouteBuilder endpoints)
         {
 
+
+            
+
             endpoints.MapControllerRoute(
                 name: "admin-area",
                 pattern: "admin/{controller=Dashboard}/{action=Index}/{id?}",
