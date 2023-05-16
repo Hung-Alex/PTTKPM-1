@@ -1,0 +1,23 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
+
+namespace RoomManagement.Areas.Admin.Models.PriceManagementModel
+{
+    public class PriceManagementEditModel
+    {
+        public int Id { get; set; }
+
+        [DisplayName("Tên loại giá")]
+        public string Name { get; set; }// tên của loại giá ngày lễ giá ngày thường 
+
+        [DisplayName("Slug")]
+        [Remote("VerifyRoomSlug", "Room", "Admin", HttpMethod = "POST", AdditionalFields = "Id")]
+        public string UrlSlug { get; set; }
+
+        [DisplayName("Giá")]
+        public int Price { get; set; } //giá tiền 
+
+        [DisplayName("Nội dung")]
+        public string Description { get; set; }// Mô tả 
+    }
+}
