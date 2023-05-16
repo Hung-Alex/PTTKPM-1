@@ -11,7 +11,7 @@ namespace RoomManagement.Areas.Admin.Models.PriceManagementModel
         public string Name { get; set; }// tên của loại giá ngày lễ giá ngày thường 
 
         [DisplayName("Slug")]
-        [Remote("VerifyRoomSlug", "Room", "Admin", HttpMethod = "POST", AdditionalFields = "Id")]
+        [Remote("VerifyPriceManagementSlug", "PriceManagement", "Admin", HttpMethod = "POST", AdditionalFields = "Id")]
         public string UrlSlug { get; set; }
 
         [DisplayName("Giá")]

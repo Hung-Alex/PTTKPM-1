@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using RoomManagement.Data.Context;
 using RoomManagement.Services.Media;
 using RoomManagement.Services.RoomMangementService.PriceManagementSerivce;
@@ -6,6 +7,7 @@ using RoomManagement.Services.RoomMangementService.RoomSerivce;
 using RoomManagement.Services.RoomMangementService.RoomTypeSerivce;
 using RoomManagement.Services.RoomMangementService.VoucherSerivce;
 using System.Data;
+using System.Reflection;
 
 namespace RoomManagement.Extensions
 {
@@ -50,7 +52,8 @@ namespace RoomManagement.Extensions
             builder.Services.AddScoped<IRoomTypeRepository, RoomTypeRepository>();
             builder.Services.AddScoped<IVoucherRepository, VoucherRepository>();
             builder.Services.AddScoped<IPriceManagementRepository, PriceManagementRepository>();
-          
+            builder.Services.AddValidatorsFromAssemblyContaining(typeof(Assembly));
+
             //builder.Services.AddScoped<IDataSeeder, DataSeeder>();
             builder.Services.AddScoped<IMediaManager, LocalFileSystemMediaManager>();
           

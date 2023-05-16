@@ -1,5 +1,18 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model PaginationResult<RoomDto>
+
+<table>
+    @{
+        foreach (var item in Model.Items)
+        {
+            <tr>
+                <th>@item.Name</th>
+                <th>@item.Area</th>
+                <th>@item.Status</th>
+            </tr>
+        }
+   
+    }
+  @* test load data success*@
+   @* trong thang PaginationResult
+    <RoomDto> có 1 truong lưu thông tin phân trang *@
+</table>
