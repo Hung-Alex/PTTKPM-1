@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using RoomManagement.Data.Context;
+using RoomManagement.Data.Seeders;
 using RoomManagement.Services.Media;
 using RoomManagement.Services.RoomMangementService.PriceManagementSerivce;
 using RoomManagement.Services.RoomMangementService.RoomSerivce;
@@ -54,13 +55,13 @@ namespace RoomManagement.Extensions
             builder.Services.AddScoped<IPriceManagementRepository, PriceManagementRepository>();
             builder.Services.AddValidatorsFromAssemblyContaining(typeof(Assembly));
 
-            //builder.Services.AddScoped<IDataSeeder, DataSeeder>();
+            builder.Services.AddScoped<IDataSeeder, DataSeeder>();
             builder.Services.AddScoped<IMediaManager, LocalFileSystemMediaManager>();
           
 
             return builder;
         }
-
+       
         // Cấu hình HTTP Request pipeline
         public static WebApplication UseRequestPipeline(this WebApplication app)
         {
@@ -102,7 +103,7 @@ namespace RoomManagement.Extensions
 
             try
             {
-                //scope.ServiceProvider.GetRequiredService<IDataSeeder>().Initialize();
+                scope.ServiceProvider.GetRequiredService<IDataSeeder>().Initialize();
             }
             catch (Exception ex)
             {
