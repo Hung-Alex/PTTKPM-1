@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace RoomManagement.Areas.Admin.Models.PriceManagementModel
@@ -7,6 +8,6 @@ namespace RoomManagement.Areas.Admin.Models.PriceManagementModel
     {
         [DisplayName("Từ khóa")]
         public string Name { get; set; }// tên của loại giá ngày lễ giá ngày thường 
-        
+        public IEnumerable<SelectListItem> PriceManagementList { get; set; }
     }
 }
