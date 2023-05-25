@@ -21,5 +21,8 @@ namespace RoomManagement.Core.DTO
         public int RoomTypeId { get; set; } //mã loại phòng
         public int VoucherId { get; set; }// mã voucher
         public int PriceManagementId { get; set; } // mã quản lý giá 
+
+
+        
     }
 }

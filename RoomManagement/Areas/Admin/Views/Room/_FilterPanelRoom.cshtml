@@ -1,0 +1,89 @@
+﻿@model RoomFilterModel
+
+<form asp-area="Admin"
+      asp-controller="Room"
+      asp-action="Index"
+      method="get"
+      class="row gy-2 gx-3 align-items-center">
+
+    <div class="col-auto">
+        <label class="visually-hidden" asp-for="Name"></label>
+
+        <input type="text"
+               class="form-control"
+               asp-for="Name"
+               placeholder="Nhập từ khoá..." />
+    </div>
+
+    <div class="col-auto">
+        <label class="visually-hidden"
+               asp-for="RoomTypeId"></label>
+
+        <select class="form-select"
+                asp-for="RoomTypeId"
+                asp-items="Model.RoomTypeList">
+
+            <option value="" selected>
+                -- Chọn loại phòng --
+            </option>
+        </select>
+    </div>
+
+    <div class="col-auto">
+        <label class="visually-hidden"
+               asp-for="VoucherId"></label>
+
+        <select class="form-select"
+                asp-for="VoucherId"
+                asp-items="Model.VoucherList">
+
+            <option value="" selected>
+                -- Chọn Voucher--
+            </option>
+        </select>
+    </div>
+
+    
+
+  
+    <div class="col-auto">
+        <label class="visually-hidden"
+               asp-for="PriceManagementId"></label>
+
+        <select class="form-select"
+                asp-for="PriceManagementId"
+                asp-items="Model.PriceManagementList">
+
+            <option value="" selected>
+                -- Chọn loại giá  --
+            </option>
+        </select>
+    </div>
+
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">
+            Tìm/Lọc
+        </button>
+
+        <a asp-area="Admin"
+           asp-controller="Room"
+           asp-action="Edit"
+           class="btn btn-success">
+            Thêm mới
+        </a>
+    </div>
+    <div class="col-auto">
+       
+            <a asp-area="Admin"
+               asp-controller="Room"
+               asp-action="Index"
+               class="btn btn-success"
+            >Bỏ Lọc
+        </a>
+       
+
+       
+    </div>
+   
+
+</form>
