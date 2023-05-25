@@ -18,6 +18,7 @@ var app = builder.Build();
     app.UseRequestPipeline();
     app.UseRoomManagementRoutes();
     app.UseDataSeeder();
+   
 }
 
 app.Run();

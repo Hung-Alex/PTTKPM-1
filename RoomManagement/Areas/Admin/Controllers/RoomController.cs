@@ -55,7 +55,7 @@ namespace RoomManagement.Areas.Admin.Controllers
             var paginationResult = new PaginationResult<RoomDto>(roomList);
             await PopulateRoomFilterModelAsync(model);
 
-            return View(paginationResult);
+            return View("Index", paginationResult);
         }
 
         private async Task PopulateRoomFilterModelAsync(RoomFilterModel model)
