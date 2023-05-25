@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel;
 
 namespace RoomManagement.Areas.Admin.Models.RoomTypeModel
 {
@@ -6,5 +7,7 @@ namespace RoomManagement.Areas.Admin.Models.RoomTypeModel
     {
         [DisplayName("Từ khóa")]
         public string Name { get; set; }
+        public int? RoomTypeId { get; set; }
+        public IEnumerable<SelectListItem> RoomTypeList { get; set; }
     }
 }
