@@ -221,7 +221,7 @@
             <h1 class="h3 mb-2 text-gray-800">Tables</h1>
             <p class="mb-4">
                 DataTables is a third party plugin that is used to generate the demo table below.
-                For more information about DataTables, please visit the 
+                For more information about DataTables, please visit the
                 <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.
             </p>
             <partial name="_FilterPanelRoom" model="@Model" />
@@ -255,7 +255,11 @@
                                 {
                                     <tr>
                                         <td>@item.Name</td>
-                                        <td>@item.Image</td>
+                                        <td>
+
+                                            <img src="/@item.Image" alt="" class="img-thumbnail">
+
+                                        </td>
                                         <td>@item.Area</td>
                                         <td>@item.Description</td>
                                         <td>@item.Height</td>

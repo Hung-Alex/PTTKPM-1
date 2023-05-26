@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "speakingurl@14.0.1",
+      "destination": "wwwroot/lib/libvalidator/speakingurl/",
+      "files": [
+        "speakingurl.min.js"
+      ]
+    }
+  ]
+}
