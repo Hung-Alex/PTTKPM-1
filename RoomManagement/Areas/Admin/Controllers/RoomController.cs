@@ -53,10 +53,10 @@ namespace RoomManagement.Areas.Admin.Controllers
             var roomQuery = _mapper.Map<RoomQuery>(model);
             var roomList = await _roomRepository.GetRoomsByQuery(roomQuery, new PagingModel() {PageSize=pageSize,PageNumber=pageNumber }, rooms => rooms.ProjectToType<RoomItem>());
             
-            var paginationResult = new PaginationResult<RoomItem>(roomList);
+           ViewBag.RoomList = new PaginationResult<RoomItem>(roomList);
             await PopulateRoomFilterModelAsync(model);
-            ViewBag.Filter = model;
-            return View("Index", paginationResult);
+            
+            return View("Index", model);
         }
 
         private async Task PopulateRoomFilterModelAsync(RoomFilterModel model)
@@ -181,12 +181,12 @@ namespace RoomManagement.Areas.Admin.Controllers
 
             return slugExisted ? Json($"Slug '{urlSlug}' đã được sử dụng") : Json(true);
         }
-        [HttpPost]
-        public async Task<ActionResult> DeleteRoom(string id)
+        [HttpGet]
+        public async Task<ActionResult> DeleteRoom([FromRoute]string id)
         {
             await _roomRepository.DeleteRoom(Convert.ToInt32(id));
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
         }
     }
 }

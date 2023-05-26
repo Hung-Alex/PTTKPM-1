@@ -98,7 +98,7 @@ namespace RoomManagement.Data.Seeders
         {
             var priceManagements = new List<PriceManagement>()
             {
-                new()
+                 new()
                 {
                     Name="Phòng vip",
                     UrlSlug="phong-vip",
@@ -106,13 +106,50 @@ namespace RoomManagement.Data.Seeders
                     "và có view nhìn toàn cảnh từ cửa sổ hoặc ban công ra thành phố cực đẹp.",
                     Price=23748237
                 },
-                 new()
+                new()
                 {
                     Name="Phòng hồ bơi",
                     UrlSlug="phong-ho-boi",
                     Description="Phòng hồ bơi thường liền kề với bể bơi hoặc có một hồ bơi riêng gắn liền với phòng," +
                     "mang lại sự riêng tư và không gian rộng rãi hơn cho khách hàng.",
                      Price=54109480
+
+                },
+                new()
+                {
+                    Name="Phòng tiêu chuẩn",
+                    UrlSlug="phong-tieu-chuan",
+                    Description="Phòng tiêu chuẩn trong khách sạn, là loại phòng đơn giản nhất với những trang bị tối thiểu, " +
+                    "có diện tích nhỏ, ở tầng thấp, không có view hoặc view không đẹp. ",
+                    Price=44109480
+
+                },
+                new()
+                {
+                    Name="Phòng gia đình",
+                    UrlSlug="phong-gia-dinh",
+                    Description="Phòng gia đình dành cho gia đình khoảng 5-6 người" +
+                    "có diện tích rộng, cách bày trí đẹp mắt, có cửa nối giúp khách có thể di chuyển qua lại giữa các phòng ",
+                     Price=11109454
+
+                },
+                new()
+                {
+                    Name="Phòng căn hộ",
+                    UrlSlug="phong-can-ho",
+                    Description="Phòng căn hộ là phòng phục vụ những vị khách lưu trú dài ngày. " +
+                    "Trang bị các tiện nghi như: bếp, dụng cụ nhà bếp, máy sấy, máy giặt… " +
+                    "Dịch vụ buồng phòng thường được cung cấp 1 lần một tuần hoặc 2 lần một tuần. ",
+                    Price=49103480
+
+                },
+                new()
+                {
+                    Name="Phòng cao cấp",
+                    UrlSlug="phong-cao-cap",
+                    Description="Phòng cao cấp giống với phòng tiêu chuẩn nhưng chất lượng hơn" +
+                    "diện tích phòng được tăng thêm, có view nhìn và cách bày trí đẹp mắt hơn",
+                    Price=67103490
 
                 },
 
@@ -240,6 +277,114 @@ namespace RoomManagement.Data.Seeders
                     Width=5,
                     Status=true
                 },
+                new()
+                {
+                    Name="Phòng đơn",
+                    UrlSlug="phong-đon",
+                    Description="Phòng có 1 giường dành cho 1 khách",
+                    VoucherId=vouchers[0].Id,
+                    PriceManagementId=priceManagements[0].Id,
+                    RoomTypeId=roomTypes[0].Id,
+                    Image="",
+                    Video="",
+                    Area=555293,
+                    Height=4,
+                    Width=5,
+                    Status=true
+                },
+                 new()
+                {
+                    Name="Phòng đôi",
+                    UrlSlug="phong-doi",
+                    Description="Phòng có giường 1 dành cho 2 khách",
+                    VoucherId=vouchers[0].Id,
+                    PriceManagementId=priceManagements[0].Id,
+                    RoomTypeId=roomTypes[0].Id,
+                    Image="",
+                    Video="",
+                    Area=555293,
+                    Height=4,
+                    Width=5,
+                    Status=false
+                },
+                  new()
+                {
+                    Name="Phòng a1",
+                    UrlSlug="phong-a1",
+                    Description="là phòng tiêu chuẩn ",
+                    VoucherId=vouchers[0].Id,
+                    PriceManagementId=priceManagements[0].Id,
+                    RoomTypeId=roomTypes[0].Id,
+                    Image="",
+                    Video="",
+                    Area=555293,
+                    Height=4,
+                    Width=5,
+                    Status=true
+                },
+                   new()
+                {
+                    Name="Phòng a2",
+                    UrlSlug="phong-a2",
+                    Description="là phòng tiêu chuẩn",
+                    VoucherId=vouchers[0].Id,
+                    PriceManagementId=priceManagements[0].Id,
+                    RoomTypeId=roomTypes[0].Id,
+                    Image="",
+                    Video="",
+                    Area=555293,
+                    Height=4,
+                    Width=5,
+                    Status=true
+                },
+                    new()
+                {
+                    Name="Phòng a3",
+                    UrlSlug="phong-a3",
+                    Description="là phòng tiêu chuẩn",
+                    VoucherId=vouchers[0].Id,
+                    PriceManagementId=priceManagements[0].Id,
+                    RoomTypeId=roomTypes[0].Id,
+                    Image="",
+                    Video="",
+                    Area=555293,
+                    Height=4,
+                    Width=5,
+                    Status=true
+                },
+                       new()
+                {
+                    Name="Phòng a4",
+                    UrlSlug="phong-a4",
+                    Description="là phòng tiêu chuẩn",
+                    VoucherId=vouchers[0].Id,
+                    PriceManagementId=priceManagements[0].Id,
+                    RoomTypeId=roomTypes[0].Id,
+                    Image="",
+                    Video="",
+                    Area=555293,
+                    Height=4,
+                    Width=5,
+                    Status=false
+                },
+                          new()
+                {
+                    Name="Phòng s1",
+                    UrlSlug="phong-s1",
+                    Description="là phòng cao cấp",
+                    VoucherId=vouchers[0].Id,
+                    PriceManagementId=priceManagements[0].Id,
+                    RoomTypeId=roomTypes[0].Id,
+                    Image="",
+                    Video="",
+                    Area=555293,
+                    Height=4,
+                    Width=5,
+                    Status=true
+                },
+
+
+
 
 
             };
