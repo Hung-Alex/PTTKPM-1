@@ -47,14 +47,15 @@ namespace RoomManagement.Areas.Admin.Controllers
             _validator = validator;
 
         }
+        [HttpGet]
         public async Task<IActionResult> Index(RoomFilterModel model, [FromQuery(Name = "p")] int pageNumber = 1, [FromQuery(Name = "ps")] int pageSize = 10)
         {
             var roomQuery = _mapper.Map<RoomQuery>(model);
-            var roomList = await _roomRepository.GetRoomsByQuery(roomQuery, new PagingModel() {PageSize=pageSize,PageNumber=pageNumber }, rooms => rooms.ProjectToType<RoomDto>());
+            var roomList = await _roomRepository.GetRoomsByQuery(roomQuery, new PagingModel() {PageSize=pageSize,PageNumber=pageNumber }, rooms => rooms.ProjectToType<RoomItem>());
             
-            var paginationResult = new PaginationResult<RoomDto>(roomList);
+            var paginationResult = new PaginationResult<RoomItem>(roomList);
             await PopulateRoomFilterModelAsync(model);
-
+            ViewBag.Filter = model;
             return View("Index", paginationResult);
         }
 
