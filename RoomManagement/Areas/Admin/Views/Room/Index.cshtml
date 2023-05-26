@@ -1,5 +1,5 @@
 ﻿@using RoomManagement.Models;
-@model PaginationResult<RoomItem>
+@model RoomFilterModel
 
 
 
@@ -224,7 +224,7 @@
                 For more information about DataTables, please visit the 
                 <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.
             </p>
-            <partial name="_FilterPanelRoom" model="@ViewBag.Filter" />
+            <partial name="_FilterPanelRoom" model="@Model" />
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -251,7 +251,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model.Items)
+                                @foreach (var item in ViewBag.Roomlist.Items)
                                 {
                                     <tr>
                                         <td>@item.Name</td>
@@ -293,7 +293,7 @@
                         </table>
                     </div>
                 </div>
-                <partial name="_Pagination" model="@Model.Metadata" />
+                <partial name="_Pagination" model="@ViewBag.Roomlist.Metadata" />
             </div>
 
         </div>
