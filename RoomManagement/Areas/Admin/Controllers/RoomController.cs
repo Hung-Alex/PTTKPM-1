@@ -181,12 +181,12 @@ namespace RoomManagement.Areas.Admin.Controllers
 
             return slugExisted ? Json($"Slug '{urlSlug}' đã được sử dụng") : Json(true);
         }
-        [HttpPost]
-        public async Task<ActionResult> DeleteRoom(string id)
+        [HttpGet]
+        public async Task<ActionResult> DeleteRoom([FromRoute]string id)
         {
             await _roomRepository.DeleteRoom(Convert.ToInt32(id));
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
         }
     }
 }
