@@ -55,7 +55,7 @@ namespace RoomManagement.Areas.Admin.Controllers
             
            ViewBag.RoomList = new PaginationResult<RoomItem>(roomList);
             await PopulateRoomFilterModelAsync(model);
-            
+            ViewData["Query"] = model;
             return View("Index", model);
         }
 
@@ -127,6 +127,7 @@ namespace RoomManagement.Areas.Admin.Controllers
         public async Task<ActionResult> Edit(RoomEditModel model)
         {
             
+
             var validationResult = await _validator.ValidateAsync(model);
 
             if (!validationResult.IsValid)
@@ -141,7 +142,8 @@ namespace RoomManagement.Areas.Admin.Controllers
             }
 
             var room = model.Id > 0 ? await _roomRepository.GetRoomByIdAsync(model.Id) : null;
-
+            string imageUrl = room.Image;
+            string VideoUrl = room.Video;
             if (room == null)
             {
                 room = _mapper.Map<Room>(model);
@@ -152,7 +154,8 @@ namespace RoomManagement.Areas.Admin.Controllers
             else
             {
                 _mapper.Map(model, room);
-
+                room.Image = imageUrl;
+                room.Video = VideoUrl;
                 
             }
 
@@ -169,7 +172,18 @@ namespace RoomManagement.Areas.Admin.Controllers
                     room.Image = newImagePath;
                 }
             }
+            if (model.VideoFile?.Length > 0)
+            {
+                // Thực hiện việc lưu tập tin vào thư mực uploads
+                var newVideoPath = await _mediaManager.SaveFileAsync(model.VideoFile.OpenReadStream(), model.VideoFile.FileName, model.VideoFile.ContentType);
 
+                // Nếu lưu thành công, xóa tập tin hình ảnh cũ (nếu có)
+                if (!string.IsNullOrWhiteSpace(newVideoPath))
+                {
+                    await _mediaManager.DeleteFileAsync(room.Video);
+                    room.Video = newVideoPath;
+                }
+            }
             await _roomRepository.AddOrUpdateRoom(room);
 
             return RedirectToAction(nameof(Index));

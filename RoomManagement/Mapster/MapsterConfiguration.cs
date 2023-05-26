@@ -13,6 +13,10 @@ namespace RoomManagement.Mapster
         {
             config.NewConfig<Room, RoomDto>();
             config.NewConfig<Room, RoomItem>();
+            config.NewConfig<RoomEditModel,Room >()
+                .Map(dest=>dest.Image,src=>src.Image)
+                .Map(dest => dest.Video, src => src.Video);
+
             config.NewConfig<RoomQuery, RoomFilterModel>();
 
 

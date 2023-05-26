@@ -25,6 +25,9 @@ namespace RoomManagement.Areas.Admin.Models.RoomModel
         [DisplayName("Video")]
         public string Video { get; set; } // video
 
+        [DisplayName("Chọn Video")]
+        public IFormFile VideoFile { get; set; }
+
         [DisplayName("Trạng thái phòng")]
         public bool Status { get; set; } // trạng thái phòng - trống or thuê
 

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RoomManagement.Data.Context;
 
@@ -10,9 +11,11 @@ using RoomManagement.Data.Context;
 namespace RoomManagement.Data.Migrations
 {
     [DbContext(typeof(RoomManagementDbContext))]
-    partial class RoomManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230526174309_editvideoimageablenull")]
+    partial class editvideoimageablenull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

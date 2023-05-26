@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using RoomManagement.Core.Contracts;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace RoomManagement.Areas.Admin.Models.RoomModel
 {
-    public class RoomFilterModel
+    public class RoomFilterModel: IPageQuery
     {
         [DisplayName("Từ Khóa")]
         public string Name { get; set; }// tên loại phòng
@@ -30,6 +31,11 @@ namespace RoomManagement.Areas.Admin.Models.RoomModel
         public IEnumerable<SelectListItem> PriceManagementList { get; set; }
         public IEnumerable<SelectListItem> RoomTypeList { get; set; }
         public IEnumerable<SelectListItem> VoucherList { get; set; }
+
+        public string CreateQuery()
+        {
+            return $"Name={Name}&RoomTypeId={RoomTypeId}&VoucherId={VoucherId}&PriceManagementId={PriceManagementId}";
+        }
         //public float? Area { get; set; }// Diện tích đơn vị là mét ( m )
         //public float? Height { get; set; } //cao đơn vị là mét ( m )
         //public float? Width { get; set; } //rộng đơn vị là mét ( m )

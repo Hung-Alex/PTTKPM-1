@@ -29,12 +29,10 @@ namespace RoomManagement.Data.Mappings
                .HasMaxLength(500);
 
             builder.Property(x => x.Image)
-               .IsRequired()
                .HasMaxLength(1000);
 
 
-            builder.Property(x => x.Video)
-               .IsRequired()
+            builder.Property(x => x.Video)               
                .HasMaxLength(1000);
 
             builder.Property(x => x.Status)
