@@ -55,7 +55,7 @@ namespace RoomManagement.Areas.Admin.Controllers
             
            ViewBag.RoomList = new PaginationResult<RoomItem>(roomList);
             await PopulateRoomFilterModelAsync(model);
-            
+            ViewData["Query"] = model;
             return View("Index", model);
         }
 
