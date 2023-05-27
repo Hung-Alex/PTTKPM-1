@@ -142,8 +142,7 @@ namespace RoomManagement.Areas.Admin.Controllers
             }
 
             var room = model.Id > 0 ? await _roomRepository.GetRoomByIdAsync(model.Id) : null;
-            string imageUrl = room.Image;
-            string VideoUrl = room.Video;
+           
             if (room == null)
             {
                 room = _mapper.Map<Room>(model);
@@ -153,6 +152,8 @@ namespace RoomManagement.Areas.Admin.Controllers
             }
             else
             {
+                string imageUrl = room.Image;
+                string VideoUrl = room.Video;
                 _mapper.Map(model, room);
                 room.Image = imageUrl;
                 room.Video = VideoUrl;
