@@ -29,6 +29,7 @@
         </select>
     </div>
 
+
     <div class="col-auto">
         <label class="visually-hidden"
                asp-for="VoucherId"></label>
@@ -43,9 +44,24 @@
         </select>
     </div>
 
-    
+    <div class="col-auto">
+        <label class="visually-hidden" asp-for="MinPrice"></label>
 
-  
+        <input type="number"
+               class="form-control"
+               asp-for="MinPrice"
+               placeholder="Giá thấp nhất..." />
+    </div>
+
+    <div class="col-auto">
+        <label class="visually-hidden" asp-for="MaxPrice"></label>
+
+        <input type="number"
+               class="form-control"
+               asp-for="MaxPrice"
+               placeholder="Giá cao nhất..." />
+    </div>
+
     <div class="col-auto">
         <label class="visually-hidden"
                asp-for="PriceManagementId"></label>
