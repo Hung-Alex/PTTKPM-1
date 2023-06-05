@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +21,15 @@ namespace RoomManagement.Core.DTO
         //----------------------------------------------
 
         public int Price { get; set; }//giá phòng
-       
-        public bool? Status { get; set; } // trạng thái phòng trống hay chưa , True là thuê ,ngược lại 
+
+
+        public int? MinPrice { get; set; }// giá thấp nhất
+ 
+        public int? MaxPrice { get; set; }// giá cao nhất 
+
+
+
+        public bool ?Status { get; set; } // trạng thái phòng trống hay chưa , True là thuê ,ngược lại 
         public float? Area { get; set; }// Diện tích đơn vị là mét ( m )
         public float? Height { get; set; } //cao đơn vị là mét ( m )
         public float? Width { get; set; } //rộng đơn vị là mét ( m )

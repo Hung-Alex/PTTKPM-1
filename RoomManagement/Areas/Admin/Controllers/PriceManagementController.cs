@@ -57,9 +57,9 @@ namespace RoomManagement.Areas.Admin.Controllers
             var priceManagementQuery = _mapper.Map<PriceManagementQuery>(model);
             var priceManagementList = await _priceManagementRepository.GetPriceManagementsByQuery(priceManagementQuery, new PagingModel() { PageSize = pageSize, PageNumber = pageNumber }, priceManagements => priceManagements.ProjectToType<PriceManagementDto>());
 
-            var paginationResult = new PaginationResult<PriceManagementDto>(priceManagementList);
-
-            return View("Index", paginationResult);
+            ViewBag.PriceManagementList = new PaginationResult<PriceManagementDto>(priceManagementList);
+            ViewData["Query"] = model;
+            return View("Index", model);
 
         }
 
@@ -127,7 +127,7 @@ namespace RoomManagement.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> DeletePriceManagement(int id)
         {
-            var PriceManagementQuey = _priceManagementRepository.DeletePriceManagement(id);
+            var PriceManagementQuey = await _priceManagementRepository.DeletePriceManagement(id);
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> VerifyPriceManagementSlug(int id, string urlSlug)

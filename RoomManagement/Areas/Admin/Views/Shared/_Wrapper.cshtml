@@ -4,7 +4,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -16,7 +16,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="Admin/Dashboard">
+            <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
@@ -41,8 +41,8 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Các chức năng:</h6>
-                    <a class="collapse-item" href="tables.html">Xem loại phòng</a>
-                    <a class="collapse-item" href="tables.html">Thêm loại phòng</a>
+                    <a class="collapse-item" asp-area="Admin" asp-controller="RoomType" asp-action="Index">Xem loại phòng</a>
+                    <a class="collapse-item" asp-controller="RoomType" asp-area="Admin" asp-action="Edit">Thêm loại phòng</a>
                 </div>
             </div>
         </li>
@@ -79,8 +79,8 @@
             <div id="collapseVoucher" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Các chức năng:</h6>
-                    <a class="collapse-item" href="tables.html">Xem Voucher</a>
-                    <a class="collapse-item" href="tables.html">Thêm Voucher</a>
+                    <a class="collapse-item" asp-area="Admin" asp-controller="Voucher" asp-action="Index">Xem Voucher</a>
+                    <a class="collapse-item" asp-controller="Voucher" asp-area="Admin" asp-action="Edit">Thêm Voucher</a>
                 </div>
             </div>
         </li>
@@ -98,8 +98,8 @@
             <div id="collapsePrice" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Các chức năng:</h6>
-                    <a class="collapse-item" href="tables.html">Xem giá phòng</a>
-                    <a class="collapse-item" href="tables.html">Thêm giá phòng</a>
+                    <a class="collapse-item" asp-area="Admin" asp-controller="PriceManagement" asp-action="Index">Xem giá phòng</a>
+                    <a class="collapse-item" asp-controller="PriceManagement" asp-area="Admin" asp-action="Edit">Thêm giá phòng</a>
                 </div>
             </div>
         </li>

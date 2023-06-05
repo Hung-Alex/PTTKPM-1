@@ -49,7 +49,7 @@ namespace RoomManagement.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index(
 
-            RoomFilterModel model,
+            RoomTypeFilterModel model,
             [FromQuery(Name = "p")] int pageNumber = 1,
             [FromQuery(Name = "ps")] int pageSize = 10
             )
@@ -57,9 +57,14 @@ namespace RoomManagement.Areas.Admin.Controllers
             var roomTypeQuery = _mapper.Map<RoomTypeQuery>(model);
             var roomTypeList = await _roomTypeRepository.GetRoomTypesByQuery(roomTypeQuery, new PagingModel() { PageSize = pageSize, PageNumber = pageNumber }, roomTypes => roomTypes.ProjectToType<RoomTypeDto>());
 
-            var paginationResult = new PaginationResult<RoomTypeDto>(roomTypeList);
+            ViewBag.RoomTypeList = new PaginationResult<RoomTypeDto>(roomTypeList);
+            ViewData["Query"] = model;
+            return View("Index", model);
 
-            return View("Index", paginationResult);
+
+
+
+           
 
         }
 
@@ -107,12 +112,12 @@ namespace RoomManagement.Areas.Admin.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var roomType = id > 0
-           ? await _voucherRepository.GetVoucherByIdAsync(id)
+           ? await _roomTypeRepository.GetRoomTypeByIdAsync(id)
            : null;
 
             var model = roomType == null
-            ? new VoucherEditModel()
-            : _mapper.Map<VoucherEditModel>(roomType);
+            ? new RoomTypeEditModel()
+            : _mapper.Map<RoomTypeEditModel>(roomType);
 
             return View(model);
 
@@ -121,7 +126,7 @@ namespace RoomManagement.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteRoomType(int id)
         {
-            var roomTypeQuery = _roomTypeRepository.DeleteRoomType(id);
+            var roomTypeQuery = await _roomTypeRepository.DeleteRoomType(id);
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> VerifyRoomTypeSlug(int id, string urlSlug)

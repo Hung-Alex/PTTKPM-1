@@ -25,6 +25,11 @@ namespace RoomManagement.Areas.Admin.Models.RoomModel
 
         public int Price { get; set; }//giá phòng
 
+        [DisplayName("Giá thấp nhất")]
+        public int? MinPrice { get; set; }
+        [DisplayName("Giá cao nhất")]
+        public int? MaxPrice { get; set; }
+
         [DisplayName("Trạng thái phòng")]
         public bool? Status { get; set; } // trạng thái phòng trống hay chưa , True là thuê ,ngược lại 
 
@@ -32,10 +37,14 @@ namespace RoomManagement.Areas.Admin.Models.RoomModel
         public IEnumerable<SelectListItem> RoomTypeList { get; set; }
         public IEnumerable<SelectListItem> VoucherList { get; set; }
 
+
+
         public string CreateQuery()
         {
-            return $"Name={Name}&RoomTypeId={RoomTypeId}&VoucherId={VoucherId}&PriceManagementId={PriceManagementId}";
+           
+            return $"Name={Name}&RoomTypeId={RoomTypeId}&VoucherId={VoucherId}&PriceManagementId={PriceManagementId}&Status={Status}&MaxPrice={MaxPrice}&MinPrice={MinPrice}";
         }
+
         //public float? Area { get; set; }// Diện tích đơn vị là mét ( m )
         //public float? Height { get; set; } //cao đơn vị là mét ( m )
         //public float? Width { get; set; } //rộng đơn vị là mét ( m )

@@ -85,7 +85,15 @@ namespace RoomManagement.Services.RoomMangementService.RoomSerivce
             }
             if(roomQuery.Status!=null)
             {
-                rooms = rooms.Where(x => x.Status == roomQuery.Status);
+                rooms = rooms.Where(x => x.Status==roomQuery.Status);
+            }
+            if (roomQuery.MinPrice>0)
+            {
+                rooms = rooms.Where(x => x.PriceManagement.Price > roomQuery.MinPrice);
+            }
+            if (roomQuery.MaxPrice > 0)
+            {
+                rooms = rooms.Where(x => x.PriceManagement.Price < roomQuery.MaxPrice);
             }
             if (roomQuery.Area>0)
             {

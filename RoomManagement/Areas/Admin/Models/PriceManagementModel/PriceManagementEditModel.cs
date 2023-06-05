@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RoomManagement.Core.Contracts;
 using System.ComponentModel;
 
 namespace RoomManagement.Areas.Admin.Models.PriceManagementModel
 {
-    public class PriceManagementEditModel
+    public class PriceManagementEditModel:IPageQuery
     {
         public int Id { get; set; }
 
@@ -19,5 +20,10 @@ namespace RoomManagement.Areas.Admin.Models.PriceManagementModel
 
         [DisplayName("Nội dung")]
         public string Description { get; set; }// Mô tả 
+
+        public string CreateQuery()
+        {
+            return $"Name={Name}";
+        }
     }
 }

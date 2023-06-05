@@ -55,10 +55,9 @@ namespace RoomManagement.Areas.Admin.Controllers
         {
             var voucherQuery = _mapper.Map<VoucherQuery>(model);
             var voucherList = await _voucherRepository.GetVouchersByQuery(voucherQuery, new PagingModel() { PageSize = pageSize, PageNumber = pageNumber }, vouchers => vouchers.ProjectToType<VoucherDto>());
-
-            var paginationResult = new PaginationResult<VoucherDto>(voucherList);
-            
-            return View("Index", paginationResult);
+            ViewBag.VoucherList = new PaginationResult<VoucherDto>(voucherList);
+            ViewData["Query"] = model;
+            return View("Index", model);           
      
         }
 
@@ -102,7 +101,7 @@ namespace RoomManagement.Areas.Admin.Controllers
             await _voucherRepository.AddOrUpdateVoucher(voucher);
 
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
 
         }
 
@@ -126,7 +125,7 @@ namespace RoomManagement.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteVoucher(int id)
         {
-            var categoryQuery = _voucherRepository.DeleteVoucher(id);
+            var voucherQuery = await _voucherRepository.DeleteVoucher(id);
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> VerifyVoucherSlug(int id, string urlSlug)
