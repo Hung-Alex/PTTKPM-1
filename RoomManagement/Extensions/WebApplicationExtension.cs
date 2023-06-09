@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using RoomManagement.Data.Context;
 using RoomManagement.Data.Seeders;
 using RoomManagement.Services.Media;
+using RoomManagement.Services.RoomMangementService.DashboardService;
 using RoomManagement.Services.RoomMangementService.PriceManagementSerivce;
 using RoomManagement.Services.RoomMangementService.RoomSerivce;
 using RoomManagement.Services.RoomMangementService.RoomTypeSerivce;
@@ -53,6 +54,7 @@ namespace RoomManagement.Extensions
             builder.Services.AddScoped<IRoomTypeRepository, RoomTypeRepository>();
             builder.Services.AddScoped<IVoucherRepository, VoucherRepository>();
             builder.Services.AddScoped<IPriceManagementRepository, PriceManagementRepository>();
+            builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
             builder.Services.AddValidatorsFromAssemblyContaining(typeof(Assembly));
 
             builder.Services.AddScoped<IDataSeeder, DataSeeder>();

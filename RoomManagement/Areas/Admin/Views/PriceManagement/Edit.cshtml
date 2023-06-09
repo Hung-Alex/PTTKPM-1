@@ -4,11 +4,10 @@
 @{
     ViewData["Title"] = "Thêm/ Cập nhập Giá";
 }
-<div id="content-wrapper" class="d-flex flex-column">
-
-    <!-- Main Content -->
-    <div id="content">
-
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <h4>Thêm/ Cập nhập Giá</h4>
         <form method="post"
               enctype="multipart/form-data"
               asp-area="Admin"
@@ -17,8 +16,8 @@
             <div asp-validation-summary="ModelOnly"></div>
             <input type="hidden" asp-for="Id">
             @* tên phòng  *@
-            <div class="row mb-3">
-                <label asp-for="Name" class="col-sm-2 col-form-label"></label>
+            <div class="form-group">
+                <label asp-for="Name" class="col-sm-5 col-form-label"></label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" asp-for="Name">
                     <span class="text-danger"
@@ -28,8 +27,8 @@
 
             @* Slug*@
 
-            <div class="row mb-3">
-                <label asp-for="UrlSlug" class="col-sm-2 col-form-label"></label>
+            <div class="form-group">
+                <label asp-for="UrlSlug" class="col-sm-5 col-form-label"></label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" asp-for="UrlSlug">
                     <span class="text-danger"
@@ -38,16 +37,16 @@
             </div>
             @* mô tả về phòng  *@
 
-            <div class="row mb-3">
-                <label asp-for="Description" class="col-sm-2 col-form-label"></label>
+            <div class="form-group">
+                <label asp-for="Description" class="col-sm-5 col-form-label"></label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" asp-for="Description">
                     <span class="text-danger"
                           asp-validation-for="Description"></span>
                 </div>
             </div>
-            <div class="row mb-3">
-                <label asp-for="Price" class="col-sm-2 col-form-label"></label>
+            <div class="form-group">
+                <label asp-for="Price" class="col-sm-5 col-form-label"></label>
                 <div class="col-sm-10">
                     <input type="number" class="form-control" asp-for="Price">
                     <span class="text-danger"
@@ -68,6 +67,7 @@
             </div>
         </form>
     </div>
+</div>
 </div>
 
 @section scripts
