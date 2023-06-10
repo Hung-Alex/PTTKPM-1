@@ -5,22 +5,15 @@
       asp-controller="Voucher"
       asp-action="Index"
       method="get"
-      class="row gy-2 gx-3 align-items-center">
+      class="row gy-2 gx-3 align-items-center mt-4 mb-4">
 
     <div class="col-auto">
-        <label class="visually-hidden" asp-for="Name"></label>
 
         <input type="text"
                class="form-control"
                asp-for="Name"
                placeholder="Nhập từ khoá..." />
     </div>
-
-
-
-
-
-
 
     <div class="col-auto">
         <button type="submit" class="btn btn-primary">
@@ -35,17 +28,11 @@
         </a>
     </div>
     <div class="col-auto">
-
         <a asp-area="Admin"
            asp-controller="Voucher"
            asp-action="Index"
            class="btn btn-success">
             Bỏ Lọc
         </a>
-
-
-
     </div>
-
-
 </form>
