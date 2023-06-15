@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-sm-12 col-md-5">
         <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">
-            Showing @Model.PageNumber to @Model.PageCount of @Model.TotalItemCount entries
+            - @Model.PageNumber Tổng @Model.PageCount / @Model.TotalItemCount trang
         </div>
     </div>
     <div class="col-sm-12 col-md-7">
@@ -20,13 +20,13 @@
                     if (Model.IsFirstPage)
                     {
                         <li class="paginate_button page-item previous disabled" id="dataTable_previous">
-                            <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                            <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Trở lại</a>
                         </li>
                     }
                     else
                     {
                         <li class="paginate_button page-item previous" id="dataTable_previous">
-                            <a href="room?p=@(Model.PageNumber - 1)&ps=@Model.PageSize&@query.CreateQuery()" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                            <a href="room?p=@(Model.PageNumber - 1)&ps=@Model.PageSize&@query.CreateQuery()" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Trở lại</a>
                         </li>
                     }
                     <li class="paginate_button page-item active">
@@ -35,34 +35,16 @@
                     if (Model.IsLastPage)
                     {
                         <li class="paginate_button page-item next disabled" id="dataTable_next">
-                            <a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
+                            <a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Tiếp theo</a>
                         </li>
                     }
                     else
                     {
                         <li class="paginate_button page-item next" id="dataTable_next">
-                            <a href="room?p=@(Model.PageNumber + 1)&ps=@Model.PageSize&@query.CreateQuery()" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
+                            <a href="room?p=@(Model.PageNumber + 1)&ps=@Model.PageSize&@query.CreateQuery()" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Tiếp theo</a>
                         </li>
                     }
                 }
-
-               
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-
-
 
 
 
