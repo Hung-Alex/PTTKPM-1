@@ -82,6 +82,12 @@ namespace RoomManagement.Areas.Admin.Controllers
                 Text = c.Name,
                 Value = c.Id.ToString()
             });
+            model.StatusList= new List<SelectListItem>
+            {
+                //new SelectListItem { Text = "Chưa chọn", Value = null },
+                new SelectListItem { Text = "Trống", Value = "false" },
+                new SelectListItem { Text = "Thuê", Value = "true" }
+            };
         }
 
         private async Task PopulateRoomEditModelAsync(RoomEditModel model)
@@ -106,6 +112,7 @@ namespace RoomManagement.Areas.Admin.Controllers
                 Text = c.Name,
                 Value = c.Id.ToString()
             });
+            
         }
 
         [HttpGet]
