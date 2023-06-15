@@ -42,6 +42,19 @@
             </option>
         </select>
     </div>
+    <div class="col-auto">
+        <label class="visually-hidden"
+               asp-for="Status"></label>
+
+        <select class="form-select"
+                asp-for="Status"
+                asp-items="Model.StatusList">
+
+            <option value="" selected>
+                -- Trạng thái phòng--
+            </option>
+        </select>
+    </div>
 
     <div class="col-auto">
         <label class="visually-hidden" asp-for="MinPrice"></label>

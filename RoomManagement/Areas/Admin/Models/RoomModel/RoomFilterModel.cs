@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RoomManagement.Areas.Admin.Models.RoomModel
 {
-    public class RoomFilterModel: IPageQuery
+    public class RoomFilterModel : IPageQuery
     {
         [DisplayName("Từ Khóa")]
         public string Name { get; set; }// tên loại phòng
@@ -37,11 +37,14 @@ namespace RoomManagement.Areas.Admin.Models.RoomModel
         public IEnumerable<SelectListItem> RoomTypeList { get; set; }
         public IEnumerable<SelectListItem> VoucherList { get; set; }
 
+        public IEnumerable<SelectListItem> StatusList { get; set; }
 
+
+        
 
         public string CreateQuery()
         {
-           
+
             return $"Name={Name}&RoomTypeId={RoomTypeId}&VoucherId={VoucherId}&PriceManagementId={PriceManagementId}&Status={Status}&MaxPrice={MaxPrice}&MinPrice={MinPrice}";
         }
 
