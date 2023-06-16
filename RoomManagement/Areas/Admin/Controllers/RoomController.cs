@@ -121,10 +121,10 @@ namespace RoomManagement.Areas.Admin.Controllers
         public async Task<ActionResult> Edit(int id = 0)
         {
             // ID = 0 -> Thêm room mới
-            // ID > 0 : Đọc dữ liệu của bài viết từ CSDL
+            // ID > 0 : Đọc dữ liệu của phòng  từ CSDL
             var room = id > 0 ? await _roomRepository.GetRoomByIdAsync(id) : null;
 
-            // Tạo view model từ dữ liệu của bài viết
+            // Tạo view model từ dữ liệu của phòng 
             var model = room == null ? new RoomEditModel() : _mapper.Map<RoomEditModel>(room);
 
             // Gán các giá trị khác nhau cho view model
@@ -169,7 +169,7 @@ namespace RoomManagement.Areas.Admin.Controllers
                 
             }
 
-            // Nếu người dùng có upload hình ảnh minh họa cho bài viết
+            // Nếu người dùng có upload hình ảnh minh họa cho phòng 
             if (model.ImageFile?.Length > 0)
             {
                 // Thực hiện việc lưu tập tin vào thư mực uploads
@@ -196,7 +196,7 @@ namespace RoomManagement.Areas.Admin.Controllers
             }
             await _roomRepository.AddOrUpdateRoom(room);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public async Task<ActionResult> VerifyRoomSlug(int id, string urlSlug)

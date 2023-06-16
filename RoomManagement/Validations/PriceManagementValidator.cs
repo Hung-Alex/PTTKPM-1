@@ -18,7 +18,11 @@ namespace RoomManagement.Validations
 
             RuleFor(p => p.Description)
             .NotEmpty()
-            .WithMessage("Giá phòng  không được để trống");
+            .WithMessage("Mô tả không được để trống");
+
+            RuleFor(p => p.Price)
+                .GreaterThanOrEqualTo(0)
+                .WithMessage("Giá phải lớn hơn 0 đ");
 
             RuleFor(p => p.UrlSlug)
             .NotEmpty()

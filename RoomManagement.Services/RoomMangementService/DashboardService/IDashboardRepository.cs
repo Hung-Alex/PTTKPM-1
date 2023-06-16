@@ -15,5 +15,7 @@ namespace RoomManagement.Services.RoomMangementService.DashboardService
         Task<int> GetTotalVoucherAsync();
 
         Task<int> GetTotalPriceTypeAsync();
+
+        Task<int[]> GetRoomStatusInfo();
     }
 }

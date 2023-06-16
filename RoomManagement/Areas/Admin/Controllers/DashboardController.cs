@@ -18,7 +18,9 @@ namespace RoomManagement.Areas.Admin.Controllers
             ViewData["TotalRooms"] = await _dashboardRepository.GetTotalRoomsAsync();
             ViewData["TotalVoucher"] = await _dashboardRepository.GetTotalVoucherAsync();
             ViewData["TotalPriceType"] = await _dashboardRepository.GetTotalPriceTypeAsync();
-            return View();
+
+            ViewData["Analysis"] = await _dashboardRepository.GetRoomStatusInfo();
+            return View();  
         }
     }
 }

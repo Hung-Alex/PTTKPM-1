@@ -17,6 +17,16 @@ namespace RoomManagement.Services.RoomMangementService.DashboardService
         {
             _context = context;
         }
+
+        public async Task<int[]> GetRoomStatusInfo()
+        {
+            int[] quantityRooms = new int[2];
+            int empty = _context.Set<Room>().Where(x => !x.Status).ToList().Count();
+            quantityRooms[0] = empty;// phòng trống 
+            quantityRooms[1] = _context.Set<Room>().Count()-empty;// phòng thuê
+            return quantityRooms;
+        }
+
         public async Task<int> GetTotalPriceTypeAsync()
         {
             return await _context.Set<PriceManagement>().CountAsync();
