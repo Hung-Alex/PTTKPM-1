@@ -15,7 +15,7 @@ namespace RoomManagement.Validations
             .NotEmpty()
             .WithMessage("Tên  của phòng  không được để trống")
             .MaximumLength(500)
-            .WithMessage("Tiêu đề dài tối đa '{MaxLength}'");
+            .WithMessage("Tên của phòng  dài tối đa '{MaxLength}'");
 
 
 
@@ -55,6 +55,19 @@ namespace RoomManagement.Validations
                 .WithMessage("Bạn phải chọn hình ảnh cho phòng");
             });
 
+            When(p => p.Id <= 0, () =>
+            {
+                RuleFor(p => p.VideoFile)
+                .Must(f => f is { Length: > 0 })
+                .WithMessage("Bạn phải chọn Video cho phòng");
+            })
+            .Otherwise(() =>
+            {
+                RuleFor(p => p.VideoFile)
+                .MustAsync(SetVideoIfNotExist)
+                .WithMessage("Bạn phải chọn Video cho phòng");
+            });
+
         }
 
 
@@ -63,7 +76,7 @@ namespace RoomManagement.Validations
         // Nếu chưa có, bắt buộc người dùng phải chọn file
         private async Task<bool> SetImageIfNotExist(RoomEditModel postModel, IFormFile imageFile, CancellationToken cancellationToken)
         {
-            // Lấy thông tin bài viết từ CSDL
+            // Lấy thông tin phòng từ CSDL
             var room = await _roomRepository.GetRoomByIdAsync(postModel.Id, cancellationToken);
 
             // Nếu phòng đã có hình ảnh => Không bắt buộc chọn file
@@ -73,6 +86,22 @@ namespace RoomManagement.Validations
             // Ngược lại (phòng chưa có hình ảnh), kiểm tra xem
             // người dùng đã chọn file hay chưa. Nếu chưa thì báo lỗi
             return imageFile is { Length: > 0 };
+        }
+
+        // Kiểm tra xem phòng đã có video chưa
+        // Nếu chưa có, bắt buộc người dùng phải chọn file
+        private async Task<bool> SetVideoIfNotExist(RoomEditModel postModel, IFormFile videoFile, CancellationToken cancellationToken)
+        {
+            // Lấy thông tin phòng từ CSDL
+            var room = await _roomRepository.GetRoomByIdAsync(postModel.Id, cancellationToken);
+
+            // Nếu phòng đã có video => Không bắt buộc chọn file
+            if (!string.IsNullOrWhiteSpace(room?.Video))
+                return true;
+
+            // Ngược lại (phòng chưa có video), kiểm tra xem
+            // người dùng đã chọn file hay chưa. Nếu chưa thì báo lỗi
+            return videoFile is { Length: > 0 };
         }
     }
 }
