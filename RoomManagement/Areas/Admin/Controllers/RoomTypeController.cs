@@ -57,18 +57,12 @@ namespace RoomManagement.Areas.Admin.Controllers
             var roomTypeQuery = _mapper.Map<RoomTypeQuery>(model);
             var roomTypeList = await _roomTypeRepository.GetRoomTypesByQuery(roomTypeQuery, new PagingModel() { PageSize = pageSize, PageNumber = pageNumber }, roomTypes => roomTypes.ProjectToType<RoomTypeDto>());
 
+            ViewBag.PageType = "Loại phòng";
+
             ViewBag.RoomTypeList = new PaginationResult<RoomTypeDto>(roomTypeList);
             ViewData["Query"] = model;
             return View("Index", model);
-
-
-
-
-           
-
         }
-
-
         [HttpPost]
         public async Task<IActionResult> Edit([FromServices]
              IValidator<RoomTypeEditModel> validator, RoomTypeEditModel model)
@@ -105,9 +99,6 @@ namespace RoomManagement.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
 
         }
-
-
-
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {

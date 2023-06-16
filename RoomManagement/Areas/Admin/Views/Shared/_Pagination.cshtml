@@ -4,54 +4,54 @@
     var query = ViewData["Query"] as IPageQuery;
 }
 
-
 <div class="row">
     <div class="col-sm-12 col-md-5">
         <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">
-            - @Model.PageNumber Tổng @Model.PageCount / @Model.TotalItemCount trang
+            @*Tổng @Model.TotalItemCount*@
+            @if (ViewBag.PageType != null)
+            {
+                <text>Tổng @Model.TotalItemCount @ViewBag.PageType</text>
+            }
         </div>
     </div>
     <div class="col-sm-12 col-md-7">
         <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-            <ul class="pagination">
-                @{
-
-
-                    if (Model.IsFirstPage)
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    @if (Model.IsFirstPage)
                     {
-                        <li class="paginate_button page-item previous disabled" id="dataTable_previous">
-                            <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Trở lại</a>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trở lại</a>
                         </li>
                     }
                     else
                     {
-                        <li class="paginate_button page-item previous" id="dataTable_previous">
-                            <a href="room?p=@(Model.PageNumber - 1)&ps=@Model.PageSize&@query.CreateQuery()" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Trở lại</a>
+                        <li class="page-item">
+                            <a class="page-link" href="room?p=@(Model.PageNumber - 1)&ps=@Model.PageSize&@query.CreateQuery()">Trở lại</a>
                         </li>
                     }
-                    <li class="paginate_button page-item active">
-                        <a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">@Model.PageNumber</a>
-                    </li>
-                    if (Model.IsLastPage)
+
+                    @for (int i = 1; i <= Model.PageCount; i++)
                     {
-                        <li class="paginate_button page-item next disabled" id="dataTable_next">
-                            <a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Tiếp theo</a>
+                        <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                            <a class="page-link" href="room?p=@i&ps=@Model.PageSize&@query.CreateQuery()">@i</a>
+                        </li>
+                    }
+
+                    @if (Model.IsLastPage)
+                    {
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Tiếp theo</a>
                         </li>
                     }
                     else
                     {
-                        <li class="paginate_button page-item next" id="dataTable_next">
-                            <a href="room?p=@(Model.PageNumber + 1)&ps=@Model.PageSize&@query.CreateQuery()" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">Tiếp theo</a>
+                        <li class="page-item">
+                            <a class="page-link" href="room?p=@(Model.PageNumber + 1)&ps=@Model.PageSize&@query.CreateQuery()">Tiếp theo</a>
                         </li>
                     }
-                }
-
-
-
-
-            </ul>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
-
-

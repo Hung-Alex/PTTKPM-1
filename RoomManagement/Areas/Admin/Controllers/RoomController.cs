@@ -52,8 +52,10 @@ namespace RoomManagement.Areas.Admin.Controllers
         {
             var roomQuery = _mapper.Map<RoomQuery>(model);
             var roomList = await _roomRepository.GetRoomsByQuery(roomQuery, new PagingModel() {PageSize=pageSize,PageNumber=pageNumber }, rooms => rooms.ProjectToType<RoomItem>());
-            
-           ViewBag.RoomList = new PaginationResult<RoomItem>(roomList);
+
+            ViewBag.PageType = "Phòng";
+
+            ViewBag.RoomList = new PaginationResult<RoomItem>(roomList);
             await PopulateRoomFilterModelAsync(model);
             ViewData["Query"] = model;
             return View("Index", model);

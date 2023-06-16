@@ -57,6 +57,8 @@ namespace RoomManagement.Areas.Admin.Controllers
             var priceManagementQuery = _mapper.Map<PriceManagementQuery>(model);
             var priceManagementList = await _priceManagementRepository.GetPriceManagementsByQuery(priceManagementQuery, new PagingModel() { PageSize = pageSize, PageNumber = pageNumber }, priceManagements => priceManagements.ProjectToType<PriceManagementDto>());
 
+            ViewBag.PageType = "Giá phòng";
+
             ViewBag.PriceManagementList = new PaginationResult<PriceManagementDto>(priceManagementList);
             ViewData["Query"] = model;
             return View("Index", model);
