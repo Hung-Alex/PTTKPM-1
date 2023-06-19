@@ -137,6 +137,8 @@
                     <label asp-for="ImageFile" class="col-sm-5  col-form-label"></label>
                     <div class="col-sm-10">
                         <input type="file" class="form-control" asp-for="ImageFile">
+                        <span class="text-danger"
+                              asp-validation-for="ImageFile"></span>
                     </div>
                 </div>
 
@@ -167,6 +169,8 @@
                     <label asp-for="VideoFile" class="col-sm-5  col-form-label"></label>
                     <div class="col-sm-10">
                         <input type="file" class="form-control" asp-for="VideoFile">
+                        <span class="text-danger"
+                              asp-validation-for="VideoFile"></span>
                     </div>
                 </div>
 
